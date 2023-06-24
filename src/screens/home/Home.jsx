@@ -10,6 +10,7 @@ import Login from '../auth/Login'
 
 
 import './home.css'
+import { setClientToken } from '../../spotify'
 
 const Home = () => {
 
@@ -24,8 +25,10 @@ const Home = () => {
       const _token =  hash.split('&')[0].split('=')[1]
       window.localStorage.setItem('token', _token)
       setToken(_token)
+      setClientToken(_token)
     } else {
       setToken(token)
+      setClientToken(token)
     }
   })
 
